@@ -1,7 +1,7 @@
 /*---------------General rules--------------- */
 body {
     background: #05264c;
-    background: linear-gradient(45deg, #99acc2 0%, #fff 100%);
+    background: linear-gradient(45deg, #cccccc 0%, rgb(0, 3, 175) 100%);
     margin: 0;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -14,7 +14,7 @@ section {
     margin: 0 0 5em;
     padding: 0;
     color: #fff;
-    overflow: scroll;
+    overflow: hidden;
 
 }
 
@@ -23,6 +23,7 @@ h2 {
     font-family: 'Oxygen', Sans-Serif;
     font-size: 2.3em;
     color: #fff;
+    padding: 5px;
 }
 
 p {
@@ -84,6 +85,16 @@ p {
     color: white;
 }
 
+.hero-text h1 {
+    font-size: 7em;
+}
+
+.hero-text:hover {
+    transform: scale(1.4);
+    top: 35%;
+    left: 30%;
+    transition: ease-in-out 0.5s;
+}
 /* ---------------Sections--------------- */
 .container {
     height: 80%;
@@ -103,7 +114,7 @@ section:nth-of-type(odd) h2 {
 
 section:nth-of-type(even) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("even\ sections.jpg");
-    height: 50vh;
+    height: 60vh;
     margin: 0 0 5em;
     padding: 0;
 
@@ -112,11 +123,12 @@ section:nth-of-type(even) {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    z-index: -5;
 }
 
 section:nth-of-type(odd) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("odd\ section.jpg");
-    height: 50vh;
+    height: 60vh;
     margin: 0 0 5em;
     padding: 0;
 
@@ -125,6 +137,7 @@ section:nth-of-type(odd) {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    z-index: -5;
 }
 /* end of section background imgs */
 
@@ -138,3 +151,56 @@ section:nth-of-type(odd) .container {
     margin: 0 2em 0;
     text-align: left; 
 }
+
+/* animation */
+/* Background Circles */
+/* Note that background circles are created with psuedo elements before and after */
+/* Circles appear to be random do to use of :nth-of-type psuedo class */
+section:nth-of-type(odd) h2::before {
+    content: '';
+    background: rgba(31, 23, 110, 0.514);
+    position: absolute;
+    z-index: -1;
+    width: 20vh;
+    height: 10vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(even) h2::before {
+    content: '';
+    background: rgba(31, 23, 110, 0.514);
+    position: absolute;
+    z-index: -1;
+    width: 20vh;
+    height: 10vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+
+
+/* ---- Theme State Rules ---- */
+/* Section Active Styles */
+/* Note: active-section class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
+
+
+section.active-section h2::before {
+    opacity: 1;
+    animation: rotate 4s linear 0s infinite alternate;
+}
+
+/* Section Active Styles Keyframe Animations */
+@keyframes rotate {
+	from {
+		transform: rotate(0deg)
+		           translate(-1.2em)
+		           rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg)
+		           translate(-0.2em) 
+		           rotate(-360deg);
+	}
