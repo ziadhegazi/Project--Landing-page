@@ -35,12 +35,13 @@ p {
 
 /* ---------------Navigation bar--------------- */
 .page-header {
-    background: #05264c;
     position: fixed;
-    top: 0;
+    background: rgb(9, 5, 63);
     width: 100%;
-    min-height: 8vh;
     z-index: 5;
+    display: flex;
+    justify-content: center;
+
     
 }
 
@@ -49,16 +50,34 @@ p {
     color: #fff;
     margin: 0;
     padding: 0;
+    min-height: 2em;
+    
+
 }
 
 .navbar-menu ul {
-    padding: 0;
-    /* margin: 0;     */
-    text-align: right;
+    padding: 0 1em 0;
+    margin: 0;    
+    /* text-align: right; */
+    list-style: none;
 }
 
-.navbar-menu li {
-    display: inline-block;
+li {
+    margin: 0.5em;
+    padding: 0;
+    width: fit-content;
+    height: auto;display: inline-block;
+}
+
+li .menu-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+
+}
+
+li .menu-link.active-link{
+    color: rgb(187, 160, 8);
 }
 /* ---------------Main Header---------------*/
 
@@ -224,3 +243,9 @@ section.active-section h2::before {
 .arrow-up i {
     font-size:36px
 }
+
+/* scrolling to sections */
+/* #navbar-list li:nth-of-type(n) {
+    scrollToSection(n);
+} */
+
