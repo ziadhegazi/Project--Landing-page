@@ -111,11 +111,11 @@ li .menu-link.active-link{
         font-size: 6em;
     }
 }
-/* enlarges title when eing hovered */
+/* enlarges title when being hovered */
 .hero-text:hover {
     transform: scale(1.2);
-    top: 35%;
-    left: 30%;
+    top: 32%;
+    left: 28%;
     transition: ease-in-out 0.5s;
 }
 /* ---------------Sections--------------- */
@@ -229,23 +229,43 @@ section.active-section h2::before {
 	}
 }
 /* arrow up button */
-.arrow-up{
-    height: 10vh;
-    width: 5vw;
+#arrow-up{
+    height: fit-content;
+    width: fit-content;
     border-radius: 50%;
     position: fixed;
     top: 85%;
     left: 92%;
     background: rgba(2, 2, 34, 0.685);
     outline: none;
+    cursor: pointer;
 }
 
-.arrow-up i {
-    font-size:36px
+#arrow-up i {
+    font-size:50px;
+    color: #fff;
 }
 
-/* scrolling to sections */
-/* #navbar-list li:nth-of-type(n) {
-    scrollToSection(n);
-} */
+/* add section button */
+#add-section {
+    height: fit-content;
+    width: fit-content;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.945);
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    top: 90%;
+    left: 50%;
+}
+#add-section:hover {
+    transform: scale(1.2);
+    transition: ease-in-out 0.2s;
+}
 
+#add-section i {
+    font-size:70px;
+    color: #fff;
+}
